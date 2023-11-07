@@ -1,7 +1,8 @@
 import re
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from enum import Enum
-from typing import Type
+from typing import Type, List, Literal
+from datetime import datetime
 
 # def create_pydantic_model_from_string(definitions_str):
 #     # Split the string into blocks
@@ -43,6 +44,16 @@ def create_pydantic_model_from_string(definitions_str):
 
     # Dictionary to hold dynamically created classes and also include the global context
     created_classes = globals().copy()
+    
+    # Include Field in the context for exec
+    created_classes['Field'] = Field
+    # Include datetime in the context for exec
+    created_classes['datetime'] = datetime
+    # Include List in the context for exec
+    created_classes['List'] = List
+    # Include List in the context for exec
+    created_classes['Literal'] = Literal
+    
 
     # Process each block to create classes
     for block in blocks:

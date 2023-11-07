@@ -45,7 +45,6 @@ class ThoughtAnswerResponse(BaseModel):
     difficulty: Difficulty
 
 # Test 4
-
 class CityResponse(BaseModel):
     city_name: str = Field(description="Name of the city")
     country: str = Field(description="country of the city")
@@ -57,7 +56,6 @@ class Cities(BaseModel):
     cities: List[CityResponse]
 
 # Test 5
-
 class Owner(BaseModel):
   firstName: str
   age: int
